@@ -7,7 +7,7 @@
     <title>Document</title>
 </head>
 <body>
-    <input id="phone" type="number" name="foo" />
+    <input id="phone" type="phone" name="foo" />
     <div id="isNumber"></div>
 
     <script>
@@ -28,8 +28,11 @@
             var a = "This phonenumber is valid!";
             var b = "This phonenumber is not valid!";
             $('#isNumber').text(cfn ? a : b);
+            document.getElementById("isNumber").style.color = cfn ? 'green' : 'red';
+            
         });
     });
+ 
 
     $(document).on('keypress','#phone',function(e){
 if($(e.target).prop('value').length>=10){
