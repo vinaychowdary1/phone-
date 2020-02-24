@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <input id="phone" type="number" name="foo" />
+    <div id="isNumber"></div>
+
+    <script>
+    function checkForNumber(number, size) {
+        var nbrString = '';
+        for (var i = 0; i < number.length; i++) {
+            var cc = number.charCodeAt(i);
+            if (cc >= 48 && cc < 58) {
+                nbrString += number[i];
+            }
+        }
+        return nbrString.length === size;
+    }
+    
+    $(document).ready(function() {
+        $('#phone').keyup(function() {
+            var cfn = checkForNumber(this.value, 10);
+            var a = "This phonenumber is valid!";
+            var b = "This phonenumber is not valid!";
+            $('#isNumber').text(cfn ? a : b);
+        });
+    });
+
+    $(document).on('keypress','#phone',function(e){
+if($(e.target).prop('value').length>=10){
+if(e.keyCode!=32)
+{return false} 
+}})
+</script>
+</body>
+</html>
